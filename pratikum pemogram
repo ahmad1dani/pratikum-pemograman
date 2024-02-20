@@ -1,0 +1,82 @@
+(1)
+(1)JAVA PAKAI RETERUN
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+public class pemogramanreturn1 {
+
+public static void main(String[] args) {
+    SwingUtilities.invokeLater(() -> createAndShowGUI());
+}
+
+public static void createAndShowGUI() {
+    JFrame frame = new JFrame("Java Swing Table Example");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    JTable table = createTable();
+    JScrollPane scrollPane = new JScrollPane(table);
+
+    frame.getContentPane().add(scrollPane);
+    frame.setSize(400, 300);
+    frame.setLocationRelativeTo(null);
+    frame.setVisible(true);
+}
+
+public static JTable createTable() {
+    String[] columnNames = {"Name", "USIA", "NEGARA"};
+    Object[][] data = {
+            {"John", 25, "USA"},
+            {"Anna", 30, "Canada"},
+            {"Mike", 22, "UK"}
+    };
+
+    DefaultTableModel model = new DefaultTableModel(data, columnNames);
+    return new JTable(model);
+}
+}
+(2) JAVA TIDAK MEMAKAI RETERUN (TANPA RETERUN)
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.SwingUtilities;
+
+public class pemogramantanpareturn {
+
+public static void main(String[] args) {
+    SwingUtilities.invokeLater(() -> createAndShowGUI());
+}
+
+/**
+ * 
+ */
+private static void createAndShowGUI() {
+    JFrame frame = new JFrame("Swing Table Example");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    // Data untuk tabel (contoh data)
+    final Object[][] data = {
+            {"John", 25},
+            {"Alice", 30},
+            {"Bob", 28},
+            {"Eva", 22}
+    };
+
+    // Nama kolom
+    String[] columnNames = {"Nama", "Usia"};
+
+    // Membuat JTable dengan data dan nama kolom
+    JTable table = new JTable(data, columnNames);
+
+    // Membuat JScrollPane untuk menampung JTable
+    JScrollPane scrollPane = new JScrollPane(table);
+
+    // Menambahkan JScrollPane ke frame
+    frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+
+    // Menentukan ukuran frame
+    frame.setSize(300, 200);
+
+    // Menampilkan frame
+    frame.setVisible(true);
+}
+}
